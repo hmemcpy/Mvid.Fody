@@ -17,6 +17,7 @@ public class ModuleWeaver
     public Action<string, SequencePoint> LogErrorPoint { get; set; }
 
     public ModuleDefinition ModuleDefinition { get; set; }
+    public IAssemblyResolver AssemblyResolver { get; set; }
 
     public ModuleWeaver()
     {
