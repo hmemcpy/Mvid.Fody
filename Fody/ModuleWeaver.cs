@@ -30,6 +30,16 @@ public class ModuleWeaver
 
     public void Execute()
     {
-        
+        CustomAttribute attribute;
+        if (ModuleDefinition.Assembly.TryGetAttribute("MvidAttribute", out attribute) ||
+            ModuleDefinition.TryGetAttribute("MvidAttribute", out attribute))
+        {
+            var attrValue = attribute.ConstructorArguments.FirstOrDefault().Value?.ToString();
+            Guid guid;
+            if (Guid.TryParse(attrValue, out guid))
+            {
+                ModuleDefinition.Mvid = guid;
+            }
+        }
     }
 }
