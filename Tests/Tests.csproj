@@ -52,12 +52,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyWeaver.cs" />
@@ -72,12 +67,12 @@
       <Project>{CA23CBE5-C66B-4163-B831-602EAF3E7B07}</Project>
       <Name>Fody</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SignedAssembly\SignedAssembly.csproj">
+    <ProjectReference Include="SignedAssembly\SignedAssembly.csproj">
       <Project>{2377a57c-491a-4994-a7eb-c8f02ecd9801}</Project>
       <Name>SignedAssembly</Name>
     </ProjectReference>
-    <ProjectReference Include="..\TestAssembly\TestAssembly.csproj">
-      <Project>{2809E0A9-F973-40E1-B467-F359B77BF060}</Project>
+    <ProjectReference Include="TestAssembly\TestAssembly.csproj">
+      <Project>{2809e0a9-f973-40e1-b467-f359b77bf060}</Project>
       <Name>TestAssembly</Name>
     </ProjectReference>
   </ItemGroup>

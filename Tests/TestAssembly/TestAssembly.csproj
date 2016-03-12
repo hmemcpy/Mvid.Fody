@@ -41,7 +41,7 @@
     <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ReferenceAssembly\ReferenceAssembly.csproj">
+    <ProjectReference Include="..\..\ReferenceAssembly\ReferenceAssembly.csproj">
       <Project>{FF8A5C61-FFF4-42B0-8BFC-1CE785C81FD3}</Project>
       <Name>ReferenceAssembly</Name>
     </ProjectReference>

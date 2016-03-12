@@ -11,7 +11,7 @@ According to the [Standard ECMA 335 - Common Language Infrastructure (CLI)](http
 > newly generated for every module, using the algorithm specified in ISO/IEC 11578:1996 (Annex A) or another
 > compatible algorithm.
 
-`ECMA-355.pdf`, page 265.
+`ECMA-335.pdf`, page 265.
 
 This means, **USE AT YOUR OWN RISK!**
 
@@ -23,11 +23,13 @@ https://nuget.org/packages/Mvid.Fody/
     
 ### Usage
 
-Add the following definition to your code (typically, `AssemblyInfo.cs`):
+Add the following declaration to your code (typically, `AssemblyInfo.cs`):
 
     [assembly: Mvid("your-guid-string)"]
+
+Note: the GUID string can be in any format that is supported by [`Guid.Parse`](https://msdn.microsoft.com/en-us/library/system.guid.parse.aspx).
     
-The compiled assembly will have an MVID value of the specified Guid.
+The compiled assembly will have an MVID value of the specified GUID, and the custom `MvidAttribute` will be removed from the assembly.
 
 ## Icon
 

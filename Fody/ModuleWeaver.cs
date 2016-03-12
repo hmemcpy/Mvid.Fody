@@ -35,12 +35,27 @@ public class ModuleWeaver
         if (ModuleDefinition.Assembly.TryGetAttribute("MvidAttribute", out attribute) ||
             ModuleDefinition.TryGetAttribute("MvidAttribute", out attribute))
         {
-            var attrValue = attribute.ConstructorArguments.FirstOrDefault().Value?.ToString();
-            Guid guid;
-            if (Guid.TryParse(attrValue, out guid))
+            var attrValue = attribute.ConstructorArguments[0].Value.ToString();
+            if (!string.IsNullOrWhiteSpace(attrValue))
             {
-                ModuleDefinition.Mvid = guid;
+                Guid guid;
+                if (Guid.TryParse(attrValue, out guid))
+                {
+                    ModuleDefinition.Mvid = guid;
+                }
             }
+
+            RemoveReference(attribute);
         }
+    }
+
+    private void RemoveReference(CustomAttribute attribute)
+    {
+        ModuleDefinition.CustomAttributes.Remove(attribute);
+        ModuleDefinition.Assembly.CustomAttributes.Remove(attribute);
+
+        var referenceToRemove = ModuleDefinition.AssemblyReferences.FirstOrDefault(reference => reference.Name == "Mvid");
+        if (referenceToRemove != null)
+            ModuleDefinition.AssemblyReferences.Remove(referenceToRemove);
     }
 }
